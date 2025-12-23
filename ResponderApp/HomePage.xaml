@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="ResponderApp.HomePage"
+             x:Name="HomePageInstance"
+             Title="Responder Home"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <!-- Map -->
+        <maps:Map x:Name="ResponderMap"
+                  IsShowingUser="true"
+                  MapType="Street"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"/>
+
+
+        <!-- Hamburger Menu Icon -->
+        <ImageButton Source="hamburgericon.png"
+                     HeightRequest="32"
+                     WidthRequest="32"
+                     VerticalOptions="Start"
+                     HorizontalOptions="Start"
+                     Margin="10"
+                     Aspect="AspectFill"
+                     Clicked="OnHamburgerMenuClick" />
+
+        <!-- Hamburger Dropdown Menu -->
+        <Frame x:Name="HamburgerMenu"
+               IsVisible="False"
+               Padding="0"
+               HasShadow="True"
+               BackgroundColor="#CC2E2E2E"
+               CornerRadius="10"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"
+               Margin="10,60,0,0">
+            <StackLayout Padding="1" Spacing="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="hazardicon.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           VerticalOptions="Center" 
+                           Margin="20,0,0,0" />
+                    <Button Grid.Column="1"
+                            Text="Report"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            HorizontalOptions="Start"
+                            Clicked="OnReportClicked" />
+                </Grid>
+                <BoxView HeightRequest="1" Color="#90FFFFFF" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="magnifyingglassicon.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           VerticalOptions="Center" 
+                           Margin="20,0,0,0" />
+                    <Button Grid.Column="1"
+                            Text="Assessment"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            HorizontalOptions="Start"
+                            Clicked="OnAssessmentClicked" />
+                </Grid>
+            </StackLayout>
+        </Frame>
+
+        <!-- User Info Section -->
+        <HorizontalStackLayout HorizontalOptions="End"
+                               VerticalOptions="Start"
+                               Spacing="10"
+                               Margin="0,10,65,0">
+            <VerticalStackLayout VerticalOptions="Center">
+                <Label x:Name="UserNameLabel"
+                       Text=""
+                       FontSize="14"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Start" />
+                <Label Text="        Responder"
+                       FontSize="12"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Start" />
+            </VerticalStackLayout>
+
+            <ImageButton Source="profilepicicon.png"
+                         HeightRequest="32"
+                         WidthRequest="32"
+                         VerticalOptions="Center"
+                         Aspect="AspectFill"
+                         Clicked="OnProfileIconClicked" />
+        </HorizontalStackLayout>
+
+        <!-- Mission Panel -->
+        <Grid x:Name="MissionPanel"
+              VerticalOptions="End"
+              IsVisible="False"
+              Margin="0"
+              HeightRequest="270">
+            <Border BackgroundColor="#80000000"
+                    StrokeThickness="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="End"
+                    Padding="20,20,20,30">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25,25,0,0" />
+                </Border.StrokeShape>
+
+                <StackLayout Spacing="5">
+                    <Label Text="MISSION"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="#18C8D8"
+                           HorizontalOptions="Center" />
+
+                    <Label x:Name="NoMissionLabel"
+                           Text="No Missions Available"
+                           TextColor="GhostWhite"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           IsVisible="True" />
+
+                    <!-- Mission Details -->
+                    <StackLayout x:Name="MissionInfoStack" Spacing="4" IsVisible="False">
+                        <HorizontalStackLayout>
+                            <Image Source="affectedindividualicon.png"
+                                   HeightRequest="20"
+                                   WidthRequest="20"
+                                   Margin="0,0,5,0" />
+                            <Label Text="{Binding RescueeName}" 
+                                   TextColor="White" 
+                                   FontSize="14" />
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" Color="LightGray" />
+
+                        <HorizontalStackLayout>
+                            <Image Source="locationicon.png"
+                                   HeightRequest="20"
+                                   WidthRequest="20"
+                                   Margin="0,0,5,0" />
+                            <Label Text="{Binding MissionLocation}" 
+                                   TextColor="White" 
+                                   FontSize="14" />
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" Color="LightGray" />
+
+                        <HorizontalStackLayout>
+                            <Image Source="peopleinvolvedicon.png"
+                                   HeightRequest="20"
+                                   WidthRequest="20"
+                                   Margin="0,0,5,0" />
+                            <Label Text="{Binding RescueeContact}" 
+                                   TextColor="White" 
+                                   FontSize="14" />
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" Color="LightGray" />
+
+                        <HorizontalStackLayout>
+                            <Image Source="missiontypeicon.png"
+                                   HeightRequest="20"
+                                   WidthRequest="20"
+                                   Margin="0,0,5,0" />
+                            <Label Text="{Binding MissionIncident}" 
+                                   TextColor="White" 
+                                   FontSize="14" />
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" Color="LightGray" />
+                    </StackLayout>
+
+                    <!-- Buttons -->
+                    <StackLayout x:Name="ActionButtons"
+                                 HorizontalOptions="Center"
+                                 Margin="0,10,0,0">
+                        <Button x:Name="AcceptButton"
+                                Text="Accept"
+                                BackgroundColor="#00D9FF"
+                                TextColor="White"
+                                CornerRadius="20"
+                                WidthRequest="110"
+                                HeightRequest="40"
+                                IsVisible="False"
+                                Clicked="OnAcceptMission" />
+
+                        <Button x:Name="FinishButton"
+                                Text="Finish"
+                                BackgroundColor="#4CAF50"
+                                TextColor="White"
+                                CornerRadius="20"
+                                WidthRequest="110"
+                                HeightRequest="40"
+                                IsVisible="False"
+                                Clicked="OnFinishMission" />
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

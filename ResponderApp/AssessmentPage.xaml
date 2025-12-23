@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResponderApp.AssessmentPage"
+             BackgroundColor="#0D0D0D"
+             Title="Assessment">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="SignInGradient" StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#8EFD9F" Offset="0" />
+                <GradientStop Color="#00C9FF" Offset="1" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="24" Spacing="20">
+
+                <Button Text="← Back"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnBackClicked"
+                        HorizontalOptions="Start"
+                        Padding="0,10"/>
+
+                <Label Text="Assessment"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,10,0,30"
+                       FontAttributes="Bold"/>
+
+                <!-- Name Field -->
+                <Label Text="Name"
+                       TextColor="#AAAAAA"
+                       FontSize="14"
+                       Margin="0,0,0,1"/>
+                <Grid>
+                    <Border Stroke="{StaticResource SignInGradient}"
+                            StrokeThickness="2"
+                            Background="#1A1A1A"
+                            StrokeShape="RoundRectangle 10">
+                        <Entry Placeholder="Enter the name of affected individual"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               Margin="10,5" />
+                    </Border>
+                </Grid>
+
+                <!-- Type Field -->
+                <Label Text="Type"
+                       TextColor="#AAAAAA"
+                       FontSize="14"
+                       Margin="0,0,0,1"/>
+                <Grid>
+                    <Border Stroke="{StaticResource SignInGradient}"
+                            StrokeThickness="2"
+                            Background="#1A1A1A"
+                            StrokeShape="RoundRectangle 10">
+                        <Entry Placeholder="Enter the type of mission"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               Margin="10,5" />
+                    </Border>
+                </Grid>
+
+                <!-- Hazard Type Field -->
+                <Label Text="Hazard Type"
+                       TextColor="#AAAAAA"
+                       FontSize="14"
+                       Margin="0,0,0,1"/>
+                <Grid>
+                    <Border Stroke="{StaticResource SignInGradient}"
+                            StrokeThickness="2"
+                            Background="#1A1A1A"
+                            StrokeShape="RoundRectangle 10">
+                        <Entry Placeholder="Enter the type of hazard"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               Margin="10,5" />
+                    </Border>
+                </Grid>
+
+                <!-- Number of Casualties Field -->
+                <Label Text="Number of Casualties"
+                       TextColor="#AAAAAA"
+                       FontSize="14"
+                       Margin="0,0,0,1"/>
+                <Grid>
+                    <Border Stroke="{StaticResource SignInGradient}"
+                            StrokeThickness="2"
+                            Background="#1A1A1A"
+                            StrokeShape="RoundRectangle 10">
+                        <Entry Placeholder="Enter the number of casualties"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               Keyboard="Numeric"
+                               Margin="10,5" />
+                    </Border>
+                </Grid>
+
+                <Button Text="Report"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        FontSize="18"
+                        CornerRadius="14"
+                        HeightRequest="55"
+                        FontAttributes="Bold"
+                        Margin="0,20,0,10"
+                        VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.companyname.responderapp">
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+	<application android:allowBackup="true"
+				 android:icon="@mipmap/appicon"
+				 android:supportsRtl="true"
+				 android:label="ResponderApp"
+				 android:theme="@style/Maui.SplashTheme">
+
+		<meta-data
+			android:name="com.google.android.geo.API_KEY"
+			android:value="AIzaSyCO0TTo1COCTKnbAluUZPdkCBjL792NHEM" />
+
+	</application>
+</manifest>

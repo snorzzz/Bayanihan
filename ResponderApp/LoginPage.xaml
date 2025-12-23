@@ -1,0 +1,168 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResponderApp.LoginPage"
+             xmlns:local="clr-namespace:ResponderApp"
+             BackgroundColor="#1E1E1E"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="SignInGradient" StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#8EFD9F" Offset="0" />
+                <GradientStop Color="#00C9FF" Offset="1" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="background_image.png"
+               Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        <!-- Logo -->
+        <Image
+               Source="bayanihan_logo.png"
+               WidthRequest="300"
+               HeightRequest="300"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Margin="0,-50,0,20"/>
+
+        <!-- Rounded Panel -->
+        <Border BackgroundColor="#1E1E1E"
+                Opacity="0.6"
+                Margin="0,200,0,0"
+                StrokeThickness="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                ZIndex="1">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="25,25,0,0" />
+            </Border.StrokeShape>
+        </Border>
+
+        <!-- Main Content -->
+        <VerticalStackLayout Padding="30,230,30,30"
+                             Spacing="20"
+                             ZIndex="2"
+                             VerticalOptions="FillAndExpand"
+                             HorizontalOptions="FillAndExpand">
+
+            <!-- Welcome Text -->
+            <Label Text="Welcome"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Email"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="AntiqueWhite"
+                   Margin="3,0,0,-8" />
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="10,0"
+                   HeightRequest="50">
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="emailiconlogin.png"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+                    <Entry x:Name="EmailEntry"
+                           Grid.Column="1"
+                           Placeholder="Enter Email"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           FontSize="16"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+
+            <Label Text="Password"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="AntiqueWhite"
+                   Margin="3,5,0,-8" />
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="10,0"
+                   HeightRequest="50">
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="passwordiconlogin.png"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+                    <Entry x:Name="PasswordEntry"
+                           Grid.Column="1"
+                           Placeholder="Enter Password"
+                           IsPassword="True"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           FontSize="16"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+
+            <!-- Remember Me & Forgot Password -->
+            <Grid ColumnDefinitions="*,Auto"
+                  HorizontalOptions="FillAndExpand">
+                <!-- Left Side: Remember Me -->
+                <HorizontalStackLayout Grid.Column="0" Spacing="10">
+                    <CheckBox x:Name="rememberMeCheckBox" Color="#00D4FF" />
+                    <Label Text="Remember Me"
+                           TextColor="#ccc"
+                           FontSize="14"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Right Side: Forgot Password -->
+                <Label Text="Forgot Password?"
+                       FontSize="14"
+                       TextColor="SkyBlue"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotPasswordClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+
+            <!-- Sign In Button -->
+            <Frame CornerRadius="25"
+                   Padding="-15"
+                   HeightRequest="50"
+                   HasShadow="False"
+                   BackgroundColor="Transparent">
+                <Button Text="Sign in"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Background="{StaticResource SignInGradient}"
+                        Clicked="OnLoginClicked"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" />
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

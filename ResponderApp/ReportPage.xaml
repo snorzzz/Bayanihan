@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResponderApp.ReportPage"
+             BackgroundColor="#0D0D0D"
+             Title="Hazard Report">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="SignInGradient" StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#8EFD9F" Offset="0" />
+                <GradientStop Color="#00C9FF" Offset="1" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="24" Spacing="20">
+
+                <!-- Back Button -->
+                <Button Text="← Back"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnBackClicked"
+                        HorizontalOptions="Start"
+                        Padding="0,10"/>
+
+                <!-- Title -->
+                <Label Text="Hazard Report"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,10,0,30"
+                       FontAttributes="Bold"/>
+
+                <!-- Description -->
+                <Label Text="Description"
+                       TextColor="#AAAAAA"
+                       FontSize="14"/>
+
+                <!-- Gradient Border around Entry -->
+                <Grid>
+                    <Border Stroke="{StaticResource SignInGradient}"
+                            StrokeThickness="2"
+                            Background="#1A1A1A"
+                            StrokeShape="RoundRectangle 10">
+                        <Entry x:Name="DescriptionEntry"
+                               Placeholder="Description"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               Margin="10,5" />
+                    </Border>
+                </Grid>
+
+                <!-- Assessment -->
+                <Label Text="Assessment"
+                       TextColor="#AAAAAA"
+                       FontSize="14"/>
+
+                <!-- Gradient Border around Entry -->
+                <Grid>
+                    <Border Stroke="{StaticResource SignInGradient}"
+                            StrokeThickness="2"
+                            Background="#1A1A1A"
+                            StrokeShape="RoundRectangle 10">
+                        <Entry x:Name="AssessmentEntry"
+                               Placeholder="Type of hazard"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               Margin="10,5" />
+                    </Border>
+                </Grid>
+
+                <Button Text="Report"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        FontSize="18"
+                        CornerRadius="14"
+                        HeightRequest="55"
+                        FontAttributes="Bold"
+                        Margin="0,20,0,10"
+                        VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

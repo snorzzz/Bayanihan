@@ -1,0 +1,18 @@
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResponderApp.FlyoutHeader">
+
+    <Grid Padding="10">
+        <StackLayout Orientation="Vertical">
+            <Button Text="?"
+                    FontSize="24"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    Clicked="OnMenuClicked"/>
+
+            <Label x:Name="NameLabel" FontSize="16" FontAttributes="Bold" TextColor="Black"/>
+            <Label x:Name="EmailLabel" FontSize="14" TextColor="Gray"/>
+        </StackLayout>
+    </Grid>
+
+</ContentView>
